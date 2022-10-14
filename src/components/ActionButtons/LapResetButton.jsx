@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import handleLapResetStyles from "../../utils/handle-lap-button-utils";
 import "./ActionButtons.css";
 
 export default function LapResetButton({
@@ -7,14 +7,9 @@ export default function LapResetButton({
   addNewLap,
   resetApp,
 }) {
-  function handleButtonStyles() {
-    if (timestamp === 0) return "buttons lap-reset-button";
-    if (isTimerRunning) return "buttons lap-active";
-    if (!isTimerRunning) return "buttons reset-active";
-  }
   return (
     <button
-      className={handleButtonStyles()}
+      className={handleLapResetStyles(timestamp, isTimerRunning)}
       onClick={isTimerRunning ? () => addNewLap() : () => resetApp()}
     >
       {isTimerRunning || timestamp === 0 ? "Lap" : "Reset"}

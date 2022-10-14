@@ -1,30 +1,14 @@
 import React, { useState, useReducer, useEffect } from "react";
+import reducer, { initialState, ACTIONS } from "./reducers/reducer.js";
 import transformTime from "./utils/formatting-utils.js";
+import LapResetButton from "./components/ActionButtons/LapResetButton.jsx";
 import StartStopButton from "./components/ActionButtons/StartStopButton.jsx";
 import LapsTable from "./components/LapsTable/LapsTable.jsx";
-import reducer from "./utils/reducer-utils.js";
-import LapResetButton from "./components/ActionButtons/LapResetButton.jsx";
 import "./App.css";
 
 // ------------------------------------- //
 
-// export const isTimerRunningContext = React.createContext();
-
-export const ACTIONS = {
-  START_TIMER: "started",
-  STOP_TIMER: "stopped",
-  ADD_LAP: "added",
-  RESET_TIMER: "resetted",
-};
-
 export default function IPhoneScreen() {
-  const initialState = {
-    isTimerRunning: false,
-    timestamp: 0,
-    lapNumber: 1,
-    lapRows: [],
-    lapTimes: [],
-  };
   const [states, dispatch] = useReducer(reducer, initialState);
   const [elapsedTime, setElapsedTime] = useState(0);
 
@@ -37,31 +21,22 @@ export default function IPhoneScreen() {
     }
   });
 
-  function startTimer(timestamp) {
-    timestamp === 0 ? (timestamp = 0) : (timestamp = timestamp - elapsedTime);
+  const startTimer = (timestamp) =>
     dispatch({
       type: ACTIONS.START_TIMER,
-      payload: true,
-      timestamp: timestamp,
+      timestamp: timestamp !== 0 && (timestamp = timestamp - elapsedTime),
     });
-  }
 
-  function stopTimer() {
-    dispatch({
-      type: ACTIONS.STOP_TIMER,
-      payload: false,
-    });
-  }
+  const stopTimer = () => dispatch({ type: ACTIONS.STOP_TIMER });
 
   function addNewLap() {
-    const newLapTime = states.lapTimes.reduce(
-      (prevLap, currLap) => prevLap - currLap,
-      elapsedTime
-    );
+    const newLapTime =
+      elapsedTime -
+      states.lapRows
+        .map((lap) => lap.time)
+        .reduce((prevLap, currLap) => prevLap + currLap, 0);
     dispatch({
       type: ACTIONS.ADD_LAP,
-      payload: states.lapNumber,
-      lapTimes: [...states.lapTimes, newLapTime],
       lapRows: [...states.lapRows, { id: states.lapNumber, time: newLapTime }],
     });
   }
@@ -94,7 +69,6 @@ export default function IPhoneScreen() {
       <LapsTable
         elapsedTime={elapsedTime}
         lapNumber={states.lapNumber}
-        lapTimes={states.lapTimes}
         lapRows={states.lapRows}
       />
     </div>

@@ -1,34 +1,19 @@
 import "./LapsTable.css";
+import { displayFastestAndSlowestLap } from "../../utils/lap-speed-utils";
 import transformTime from "../../utils/formatting-utils";
 
-export default function LapsSection({
-  elapsedTime,
-  lapNumber,
-  lapTimes,
-  lapRows,
-}) {
-  function findSmallestLapTime() {
-    const minTimeLap = Math.min(...lapTimes);
-    return minTimeLap;
-  }
-
-  function findHighestLapTime() {
-    const maxTimeLap = Math.max(...lapTimes);
-    return maxTimeLap;
-  }
-
-  function displayFastestAndSlowestLap(time) {
-    if (lapNumber > 2) {
-      if (findHighestLapTime() === time) return "slowest-lap";
-      if (findSmallestLapTime() === time) return "fastest-lap";
-    }
-  }
-
+export default function LapsSection({ elapsedTime, lapNumber, lapRows }) {
   const listLaps = lapRows
     .map((lap) => {
       return (
         <tbody key={lap.id}>
-          <tr className={displayFastestAndSlowestLap(lap.time)}>
+          <tr
+            className={displayFastestAndSlowestLap(
+              lap.time,
+              lapNumber,
+              lapRows
+            )}
+          >
             <td>Lap {lap.id}</td>
             <td>{transformTime(lap.time)}</td>
           </tr>
@@ -36,6 +21,7 @@ export default function LapsSection({
       );
     })
     .reverse();
+
   return (
     <div className="lap-table-section">
       <table>
@@ -45,7 +31,9 @@ export default function LapsSection({
             <td>
               {transformTime(
                 elapsedTime -
-                  lapTimes.reduce((prevLap, currLap) => prevLap + currLap, 0)
+                  lapRows
+                    .map((lap) => lap.time)
+                    .reduce((prevLap, currLap) => prevLap + currLap, 0)
               )}
             </td>
           </tr>
