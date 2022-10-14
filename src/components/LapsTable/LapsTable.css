@@ -1,0 +1,35 @@
+.lap-table-section {
+  background-color: black;
+  width: var(--screen-width);
+  height: 296px;
+  overflow: auto;
+  /* HIDING SCROLLBAR STYLE IN IE AND SAFARI */
+  -ms-overflow-style: none;
+}
+
+table {
+  width: 100%;
+  padding: 10px 16px 0 16px;
+}
+
+.first-lap {
+  border-top: solid 0.1px gray;
+}
+
+tr {
+  display: flex;
+  height: 34px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 0.1px gray;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+
+.fastest-lap {
+  color: #04de71;
+}
+
+.slowest-lap {
+  color: #ff3b30;
+}

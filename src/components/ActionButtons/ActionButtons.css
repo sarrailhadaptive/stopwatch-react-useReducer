@@ -1,0 +1,42 @@
+.buttons-wrapper {
+  display: grid;
+  background-color: black;
+  grid-template-columns: repeat(2, 65px);
+  justify-content: space-between;
+  padding: 0 17px 10px 17px;
+}
+
+.buttons {
+  height: 65px;
+  width: 65px;
+  border-radius: 36px;
+  border: 4px double black;
+}
+
+.lap-reset-button {
+  opacity: 0.5;
+  background-color: var(--lap-reset-bg-color);
+  color: #b5b5b9;
+}
+
+.lap-active {
+  opacity: 1;
+  background-color: var(--lap-reset-bg-color);
+  color: #fff;
+}
+
+.reset-active {
+  opacity: 1;
+  background-color: var(--lap-reset-bg-color);
+  color: #fff;
+}
+
+.start-button {
+  background-color: #16472e;
+  color: #04de71;
+}
+
+.stop-button {
+  background-color: #50211f;
+  color: #ff3b30;
+}
