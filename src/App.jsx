@@ -10,12 +10,14 @@ import "./App.css";
 
 export default function IPhoneScreen() {
   const [states, dispatch] = useReducer(reducer, initialState);
-  const [elapsedTime, setElapsedTime] = useState(0);
 
   useEffect(() => {
     if (states.isTimerRunning === true) {
       const timerID = setInterval(() => {
-        setElapsedTime(Date.now() - states.timestamp);
+        dispatch({
+          type: ACTIONS.SET_ELAPSEDTIME,
+          elapsedTime: Date.now() - states.timestamp,
+        });
       }, 10);
       return () => clearInterval(timerID);
     }
@@ -24,34 +26,19 @@ export default function IPhoneScreen() {
   const startTimer = (timestamp) =>
     dispatch({
       type: ACTIONS.START_TIMER,
-      timestamp: timestamp !== 0 && (timestamp = timestamp - elapsedTime),
+      timestamp: timestamp,
     });
 
   const stopTimer = () => dispatch({ type: ACTIONS.STOP_TIMER });
 
-  function addNewLap() {
-    const newLapTime =
-      elapsedTime -
-      states.lapRows
-        .map((lap) => lap.time)
-        .reduce((prevLap, currLap) => prevLap + currLap, 0);
-    dispatch({
-      type: ACTIONS.ADD_LAP,
-      lapRows: [...states.lapRows, { id: states.lapNumber, time: newLapTime }],
-    });
-  }
+  const addNewLap = () => dispatch({ type: ACTIONS.ADD_LAP });
 
-  function resetApp() {
-    setElapsedTime(0);
-    dispatch({
-      type: ACTIONS.RESET_TIMER,
-    });
-  }
+  const resetApp = () => dispatch({ type: ACTIONS.RESET_TIMER });
 
   return (
     <div>
       <div className="main-timer-section">
-        <h1>{transformTime(elapsedTime)}</h1>
+        <h1>{transformTime(states.elapsedTime)}</h1>
       </div>
       <div className="buttons-wrapper">
         <LapResetButton
@@ -67,7 +54,7 @@ export default function IPhoneScreen() {
         />
       </div>
       <LapsTable
-        elapsedTime={elapsedTime}
+        elapsedTime={states.elapsedTime}
         lapNumber={states.lapNumber}
         lapRows={states.lapRows}
       />

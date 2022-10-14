@@ -1,4 +1,4 @@
-import handleLapResetStyles from "../../utils/handle-lap-button-utils";
+import handleLapResetStyles from "../../utils/handle-lap-reset.js";
 import "./ActionButtons.css";
 
 export default function LapResetButton({
