@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 import reducer, { initialState, ACTIONS } from "./reducers/reducer.js";
 import transformTime from "./utils/formatting-utils.js";
 import LapResetButton from "./components/ActionButtons/LapResetButton.jsx";

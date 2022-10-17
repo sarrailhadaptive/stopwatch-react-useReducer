@@ -4,18 +4,12 @@ import transformTime from "../../utils/formatting-utils";
 
 export default function LapsSection({ elapsedTime, lapNumber, lapRows }) {
   const listLaps = lapRows
-    .map((lap) => {
+    .map(({ id, time }) => {
       return (
-        <tbody key={lap.id}>
-          <tr
-            className={displayFastestAndSlowestLap(
-              lap.time,
-              lapNumber,
-              lapRows
-            )}
-          >
-            <td>Lap {lap.id}</td>
-            <td>{transformTime(lap.time)}</td>
+        <tbody key={id}>
+          <tr className={displayFastestAndSlowestLap(time, lapNumber, lapRows)}>
+            <td>Lap {id}</td>
+            <td>{transformTime(time)}</td>
           </tr>
         </tbody>
       );

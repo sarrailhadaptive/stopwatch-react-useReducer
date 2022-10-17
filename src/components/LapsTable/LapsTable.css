@@ -7,6 +7,10 @@
   -ms-overflow-style: none;
 }
 
+.lap-table-section::-webkit-scrollbar {
+  display: none;
+}
+
 table {
   width: 100%;
   padding: 10px 16px 0 16px;
