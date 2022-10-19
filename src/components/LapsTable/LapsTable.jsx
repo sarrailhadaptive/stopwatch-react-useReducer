@@ -16,22 +16,28 @@ export default function LapsSection({ elapsedTime, lapNumber, lapRows }) {
     })
     .reverse();
 
+  const currentLap = () => {
+    return (
+      <tbody>
+        <tr>
+          <td>Lap {lapNumber}</td>
+          <td>
+            {transformTime(
+              elapsedTime -
+                lapRows
+                  .map((lap) => lap.time)
+                  .reduce((prevLap, currLap) => prevLap + currLap, 0)
+            )}
+          </td>
+        </tr>
+      </tbody>
+    );
+  };
+
   return (
     <div className="lap-table-section">
       <table>
-        <tbody>
-          <tr>
-            <td>Lap {lapNumber}</td>
-            <td>
-              {transformTime(
-                elapsedTime -
-                  lapRows
-                    .map((lap) => lap.time)
-                    .reduce((prevLap, currLap) => prevLap + currLap, 0)
-              )}
-            </td>
-          </tr>
-        </tbody>
+        {elapsedTime === 0 && lapNumber === 1 ? "" : currentLap()}
         {lapNumber >= 2 && listLaps}
       </table>
     </div>

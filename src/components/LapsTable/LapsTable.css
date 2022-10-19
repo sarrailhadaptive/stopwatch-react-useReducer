@@ -1,7 +1,7 @@
 .lap-table-section {
   background-color: black;
   width: var(--screen-width);
-  height: 296px;
+  height: 276px;
   overflow: auto;
   /* HIDING SCROLLBAR STYLE IN IE AND SAFARI */
   -ms-overflow-style: none;
@@ -16,7 +16,7 @@ table {
   padding: 10px 16px 0 16px;
 }
 
-.first-lap {
+tbody:first-of-type {
   border-top: solid 0.1px gray;
 }
 

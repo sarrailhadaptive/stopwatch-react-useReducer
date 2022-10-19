@@ -4,6 +4,8 @@ import transformTime from "./utils/formatting-utils.js";
 import LapResetButton from "./components/ActionButtons/LapResetButton.jsx";
 import StartStopButton from "./components/ActionButtons/StartStopButton.jsx";
 import LapsTable from "./components/LapsTable/LapsTable.jsx";
+import Header from "../public/header.png";
+import Footer from "../public/footer.png";
 import "./App.css";
 
 // ------------------------------------- //
@@ -38,6 +40,9 @@ export default function IPhoneScreen() {
   return (
     <div>
       <div className="main-timer-section">
+        <div className="header">
+          <img src={Header} alt="header" />
+        </div>
         <h1>{transformTime(states.elapsedTime)}</h1>
       </div>
       <div className="buttons-wrapper">
@@ -47,6 +52,10 @@ export default function IPhoneScreen() {
           addNewLap={addNewLap}
           resetApp={resetApp}
         />
+        <div className="double-dot">
+          <div className="dot--1"></div>
+          <div className="dot--2"></div>
+        </div>
         <StartStopButton
           startTimer={startTimer}
           stopTimer={stopTimer}
@@ -58,6 +67,9 @@ export default function IPhoneScreen() {
         lapNumber={states.lapNumber}
         lapRows={states.lapRows}
       />
+      <footer className="footer">
+        <img src={Footer} alt="footer-images" />
+      </footer>
     </div>
   );
 }

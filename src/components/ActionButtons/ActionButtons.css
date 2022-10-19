@@ -1,7 +1,7 @@
 .buttons-wrapper {
   display: grid;
   background-color: black;
-  grid-template-columns: repeat(2, 65px);
+  grid-template-columns: repeat(3, 65px);
   justify-content: space-between;
   padding: 0 17px 10px 17px;
 }
@@ -20,15 +20,21 @@
 }
 
 .lap-active {
-  opacity: 1;
   background-color: var(--lap-reset-bg-color);
   color: #fff;
 }
 
+.lap-active:hover {
+  opacity: 0.5;
+}
+
 .reset-active {
-  opacity: 1;
   background-color: var(--lap-reset-bg-color);
   color: #fff;
+}
+
+.reset-active:hover {
+  opacity: 0.5;
 }
 
 .start-button {
@@ -36,7 +42,15 @@
   color: #04de71;
 }
 
+.start-button:hover {
+  opacity: 0.5;
+}
+
 .stop-button {
   background-color: #50211f;
   color: #ff3b30;
+}
+
+.stop-button:hover {
+  opacity: 0.5;
 }

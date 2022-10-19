@@ -6,17 +6,15 @@ export default function StartStopButton({
   isTimerRunning,
 }) {
   return (
-    <div>
-      <button
-        className={
-          isTimerRunning ? "buttons stop-button" : "buttons start-button"
-        }
-        onClick={
-          isTimerRunning ? () => stopTimer() : () => startTimer(Date.now())
-        }
-      >
-        {isTimerRunning ? "Stop" : "Start"}
-      </button>
-    </div>
+    <button
+      className={
+        isTimerRunning ? "buttons stop-button" : "buttons start-button"
+      }
+      onClick={
+        isTimerRunning ? () => stopTimer() : () => startTimer(Date.now())
+      }
+    >
+      {isTimerRunning ? "Stop" : "Start"}
+    </button>
   );
 }
