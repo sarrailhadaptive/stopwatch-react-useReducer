@@ -5,6 +5,7 @@
   overflow: auto;
   /* HIDING SCROLLBAR STYLE IN IE AND SAFARI */
   -ms-overflow-style: none;
+  overscroll-behavior: auto;
 }
 
 .lap-table-section::-webkit-scrollbar {
@@ -16,7 +17,7 @@ table {
   padding: 10px 16px 0 16px;
 }
 
-tbody:first-of-type {
+.first-lap {
   border-top: solid 0.1px gray;
 }
 

@@ -19,7 +19,7 @@ export default function LapsSection({ elapsedTime, lapNumber, lapRows }) {
   const currentLap = () => {
     return (
       <tbody>
-        <tr>
+        <tr className="first-lap">
           <td>Lap {lapNumber}</td>
           <td>
             {transformTime(
