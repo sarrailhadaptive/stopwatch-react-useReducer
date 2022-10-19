@@ -1,7 +1,7 @@
 .lap-table-section {
   background-color: black;
   width: var(--screen-width);
-  height: 276px;
+  height: 246px;
   overflow: auto;
   /* HIDING SCROLLBAR STYLE IN IE AND SAFARI */
   -ms-overflow-style: none;

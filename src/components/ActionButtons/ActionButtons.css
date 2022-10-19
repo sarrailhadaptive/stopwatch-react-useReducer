@@ -3,7 +3,7 @@
   background-color: black;
   grid-template-columns: repeat(3, 65px);
   justify-content: space-between;
-  padding: 0 17px 10px 17px;
+  padding: 0 17px 0 17px;
 }
 
 .buttons {

@@ -17,7 +17,7 @@
 .main-timer-section {
   background-color: black;
   width: var(--screen-width);
-  height: 289px;
+  height: 327px;
   display: grid;
   grid-template-rows: 35px 1fr 70px;
   align-items: end;
@@ -30,7 +30,9 @@
 }
 
 .footer {
-  background-color: #1c1c1e;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #141415;
   width: var(--screen-width);
   height: 66px;
   overflow: hidden;
@@ -38,7 +40,9 @@
 }
 
 .footer img {
+  margin-top: 7px;
   width: 345px;
+  height: 60px;
 }
 
 .double-dot {
