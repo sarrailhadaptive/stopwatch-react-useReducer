@@ -67,9 +67,7 @@ export default function IPhoneScreen() {
         lapNumber={states.lapNumber}
         lapRows={states.lapRows}
       />
-      <footer className="footer">
-        <img src={Footer} alt="footer-images" />
-      </footer>
+      <footer className="footer"></footer>
     </div>
   )
 }
