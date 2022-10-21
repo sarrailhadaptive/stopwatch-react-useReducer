@@ -21,7 +21,7 @@
 
 .lap-active {
   background-color: var(--lap-reset-bg-color);
-  color: #fff;
+  color: var(--white);
 }
 
 .lap-active:hover {
@@ -30,7 +30,7 @@
 
 .reset-active {
   background-color: var(--lap-reset-bg-color);
-  color: #fff;
+  color: var(--white);
 }
 
 .reset-active:hover {
