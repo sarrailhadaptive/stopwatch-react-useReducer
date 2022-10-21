@@ -14,7 +14,7 @@
 }
 
 .lap-reset-button {
-  opacity: 0.5;
+  opacity: 0.6;
   background-color: var(--lap-reset-bg-color);
   color: #b5b5b9;
 }
@@ -25,7 +25,7 @@
 }
 
 .lap-active:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .reset-active {
@@ -34,23 +34,23 @@
 }
 
 .reset-active:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .start-button {
-  background-color: #16472e;
-  color: #04de71;
+  background-color: var(--start-button-bg-color);
+  color: var(--start-button-text-color);
 }
 
 .start-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .stop-button {
-  background-color: #50211f;
-  color: #ff3b30;
+  background-color: var(--stop-button-bg-color);
+  color: var(--stop-button-text-color);
 }
 
 .stop-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }

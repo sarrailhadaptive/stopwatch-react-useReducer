@@ -25,7 +25,7 @@ export default function LapsSection({ elapsedTime, lapNumber, lapRows }) {
             {transformTime(
               elapsedTime -
                 lapRows
-                  .map(lap => lap.time)
+                  .map(({ time }) => time)
                   .reduce((prevLap, currLap) => prevLap + currLap, 0)
             )}
           </td>

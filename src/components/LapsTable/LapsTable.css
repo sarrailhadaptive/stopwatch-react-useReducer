@@ -3,7 +3,6 @@
   width: var(--screen-width);
   height: 246px;
   overflow: auto;
-  /* HIDING SCROLLBAR STYLE IN IE AND SAFARI */
   -ms-overflow-style: none;
   overscroll-behavior: auto;
 }
@@ -28,13 +27,13 @@ tr {
   justify-content: space-between;
   border-bottom: solid 0.1px gray;
   font-variant-numeric: tabular-nums;
-  color: #fff;
+  color: var(--white);
 }
 
 .fastest-lap {
-  color: #04de71;
+  color: var(--start-button-text-color);
 }
 
 .slowest-lap {
-  color: #ff3b30;
+  color: var(--stop-button-text-color);
 }

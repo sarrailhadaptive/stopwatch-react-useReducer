@@ -8,17 +8,17 @@ export const initialState = {
 
 export const ACTIONS = {
   START_TIMER: 'started',
+  SET_ELAPSEDTIME: 'setted',
   STOP_TIMER: 'stopped',
   ADD_LAP: 'added',
   RESET_TIMER: 'resetted',
-  SET_ELAPSEDTIME: 'setted',
 }
 
 export default function reducer(states, action) {
   const newLapTime =
     states.elapsedTime -
     states.lapRows
-      .map(lap => lap.time)
+      .map(({ time }) => time)
       .reduce((prevLap, currLap) => prevLap + currLap, 0)
 
   switch (action.type) {

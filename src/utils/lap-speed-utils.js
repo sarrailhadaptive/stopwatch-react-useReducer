@@ -1,10 +1,10 @@
 export function findSmallestLapTime(lapRows) {
-  const minTimeLap = Math.min(...lapRows.map(lap => lap.time))
+  const minTimeLap = Math.min(...lapRows.map(({ time }) => time))
   return minTimeLap
 }
 
 export function findHighestLapTime(lapRows) {
-  const maxTimeLap = Math.max(...lapRows.map(lap => lap.time))
+  const maxTimeLap = Math.max(...lapRows.map(({ time }) => time))
   return maxTimeLap
 }
 

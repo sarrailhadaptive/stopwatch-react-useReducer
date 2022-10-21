@@ -7,6 +7,10 @@
   --lap-reset-bg-color: #3a3a3c;
   --screen-width: 331px;
   --white: #fff;
+  --start-button-bg-color: #16472e;
+  --stop-button-bg-color: #50211f;
+  --start-button-text-color: #04de71;
+  --stop-button-text-color: #ff3b30;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
