@@ -1,4 +1,4 @@
-import "./ActionButtons.css";
+import './ActionButtons.css'
 
 export default function StartStopButton({
   startTimer,
@@ -8,13 +8,13 @@ export default function StartStopButton({
   return (
     <button
       className={
-        isTimerRunning ? "buttons stop-button" : "buttons start-button"
+        isTimerRunning ? 'buttons stop-button' : 'buttons start-button'
       }
       onClick={
         isTimerRunning ? () => stopTimer() : () => startTimer(Date.now())
       }
     >
-      {isTimerRunning ? "Stop" : "Start"}
+      {isTimerRunning ? 'Stop' : 'Start'}
     </button>
-  );
+  )
 }

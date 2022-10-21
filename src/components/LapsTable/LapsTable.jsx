@@ -1,6 +1,6 @@
-import "./LapsTable.css";
-import { displayFastestAndSlowestLap } from "../../utils/lap-speed-utils";
-import transformTime from "../../utils/formatting-utils";
+import './LapsTable.css'
+import { displayFastestAndSlowestLap } from '../../utils/lap-speed-utils'
+import transformTime from '../../utils/formatting-utils'
 
 export default function LapsSection({ elapsedTime, lapNumber, lapRows }) {
   const listLaps = lapRows
@@ -12,9 +12,9 @@ export default function LapsSection({ elapsedTime, lapNumber, lapRows }) {
             <td>{transformTime(time)}</td>
           </tr>
         </tbody>
-      );
+      )
     })
-    .reverse();
+    .reverse()
 
   const currentLap = () => {
     return (
@@ -25,21 +25,21 @@ export default function LapsSection({ elapsedTime, lapNumber, lapRows }) {
             {transformTime(
               elapsedTime -
                 lapRows
-                  .map((lap) => lap.time)
+                  .map(lap => lap.time)
                   .reduce((prevLap, currLap) => prevLap + currLap, 0)
             )}
           </td>
         </tr>
       </tbody>
-    );
-  };
+    )
+  }
 
   return (
     <div className="lap-table-section">
       <table>
-        {elapsedTime === 0 && lapNumber === 1 ? "" : currentLap()}
+        {elapsedTime === 0 && lapNumber === 1 ? '' : currentLap()}
         {lapNumber >= 2 && listLaps}
       </table>
     </div>
-  );
+  )
 }

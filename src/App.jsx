@@ -1,17 +1,17 @@
-import React, { useReducer, useEffect } from "react";
-import reducer, { initialState, ACTIONS } from "./reducers/reducer.js";
-import transformTime from "./utils/formatting-utils.js";
-import LapResetButton from "./components/ActionButtons/LapResetButton.jsx";
-import StartStopButton from "./components/ActionButtons/StartStopButton.jsx";
-import LapsTable from "./components/LapsTable/LapsTable.jsx";
-import Header from "../public/header.png";
-import Footer from "../public/footer.png";
-import "./App.css";
+import React, { useReducer, useEffect } from 'react'
+import reducer, { initialState, ACTIONS } from './reducers/reducer.js'
+import transformTime from './utils/formatting-utils.js'
+import LapResetButton from './components/ActionButtons/LapResetButton.jsx'
+import StartStopButton from './components/ActionButtons/StartStopButton.jsx'
+import LapsTable from './components/LapsTable/LapsTable.jsx'
+import Header from '../public/header.png'
+import Footer from '../public/footer.png'
+import './App.css'
 
 // ------------------------------------- //
 
 export default function IPhoneScreen() {
-  const [states, dispatch] = useReducer(reducer, initialState);
+  const [states, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
     if (states.isTimerRunning === true) {
@@ -19,23 +19,23 @@ export default function IPhoneScreen() {
         dispatch({
           type: ACTIONS.SET_ELAPSEDTIME,
           elapsedTime: Date.now() - states.timestamp,
-        });
-      }, 10);
-      return () => clearInterval(timerID);
+        })
+      }, 10)
+      return () => clearInterval(timerID)
     }
-  });
+  })
 
-  const startTimer = (timestamp) =>
+  const startTimer = timestamp =>
     dispatch({
       type: ACTIONS.START_TIMER,
       timestamp: timestamp,
-    });
+    })
 
-  const stopTimer = () => dispatch({ type: ACTIONS.STOP_TIMER });
+  const stopTimer = () => dispatch({ type: ACTIONS.STOP_TIMER })
 
-  const addNewLap = () => dispatch({ type: ACTIONS.ADD_LAP });
+  const addNewLap = () => dispatch({ type: ACTIONS.ADD_LAP })
 
-  const resetApp = () => dispatch({ type: ACTIONS.RESET_TIMER });
+  const resetApp = () => dispatch({ type: ACTIONS.RESET_TIMER })
 
   return (
     <div>
@@ -71,5 +71,5 @@ export default function IPhoneScreen() {
         <img src={Footer} alt="footer-images" />
       </footer>
     </div>
-  );
+  )
 }

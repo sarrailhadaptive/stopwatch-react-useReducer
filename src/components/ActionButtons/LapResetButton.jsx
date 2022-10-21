@@ -1,5 +1,5 @@
-import handleLapResetStyles from "../../utils/handle-lap-reset.js";
-import "./ActionButtons.css";
+import handleLapResetStyles from '../../utils/handle-lap-reset.js'
+import './ActionButtons.css'
 
 export default function LapResetButton({
   isTimerRunning,
@@ -12,7 +12,7 @@ export default function LapResetButton({
       className={handleLapResetStyles(timestamp, isTimerRunning)}
       onClick={isTimerRunning ? () => addNewLap() : () => resetApp()}
     >
-      {isTimerRunning || timestamp === 0 ? "Lap" : "Reset"}
+      {isTimerRunning || timestamp === 0 ? 'Lap' : 'Reset'}
     </button>
-  );
+  )
 }
